@@ -26,7 +26,7 @@
 /*    */ 
 /*    */ 
 /*    */     
-/* 29 */     URL url = new URL(String.valueOf(pathSms) + "envio");
+/* 29 */     URL url = new URL(pathSms + "envio");
 /* 30 */     LOGGER.info("Monta URl de Envio path-hiker/envio: " + url);
 /*    */     
 /* 32 */     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
@@ -41,7 +41,7 @@
 /*    */     
 /*    */     try {
 /* 43 */       LOGGER.info("----------------------------------------");
-/* 44 */       LOGGER.info(String.valueOf(connection.getResponseCode()) + " " + connection.getResponseMessage());
+/* 44 */       LOGGER.info(connection.getResponseCode() + " " + connection.getResponseMessage());
 /* 45 */       LOGGER.info("----------------------------------------");
 /* 46 */     } catch (Exception e) {
 /* 47 */       LOGGER.error(e.getMessage());
@@ -63,7 +63,7 @@
 /*    */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\InvocarMetodo.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\InvocarMetodo.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

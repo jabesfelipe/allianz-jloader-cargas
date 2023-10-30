@@ -100,7 +100,7 @@
 /* 100 */       ResultSet rs = cs.executeQuery();
 /* 101 */       while (rs.next()) {
 /* 102 */         Boleto boleto = new Boleto();
-/* 103 */         boleto.setBanco(String.valueOf(rs.getString("BANCOBOLETO")) + "- 7");
+/* 103 */         boleto.setBanco(rs.getString("BANCOBOLETO") + "- 7");
 /*     */         
 /* 105 */         boleto.setNomeSacado(rs.getString("NMCLIENTE"));
 /* 106 */         boleto.setEndereco(rs.getString("ENDERECO"));
@@ -118,7 +118,7 @@
 /* 118 */         boleto.setNumeroDocumento(rs.getString("RECIBO"));
 /*     */         
 /* 120 */         String dataBanco = rs.getString("VENCIMENTOBOLETO");
-/* 121 */         boleto.setVencimento(String.valueOf(dataBanco.substring(6, 8)) + "/" + dataBanco.substring(4, 6) + "/" + dataBanco.substring(0, 4));
+/* 121 */         boleto.setVencimento(dataBanco.substring(6, 8) + "/" + dataBanco.substring(4, 6) + "/" + dataBanco.substring(0, 4));
 /* 122 */         Double valorJuros = new Double(rs.getString("VLR_MULTA"));
 /* 123 */         double valorAjustado = valorJuros.doubleValue() / 100.0D;
 /* 124 */         boleto.setMulta(Double.valueOf(valorAjustado));
@@ -130,7 +130,7 @@
 /* 130 */         boleto.setStrValorDocumento(NumberFormat.getCurrencyInstance(ptBr).format(valorBoletoAjustado).replace("R$", ""));
 /*     */         
 /* 132 */         boleto.setAgenciaCedente(rs.getString("AGENCIA"));
-/* 133 */         boleto.setCodigoCedente(String.valueOf(rs.getString("CONTACORRENTE")) + "-" + rs.getString("DVCONTA"));
+/* 133 */         boleto.setCodigoCedente(rs.getString("CONTACORRENTE") + "-" + rs.getString("DVCONTA"));
 /* 134 */         boleto.setLocalPagamento("PAGAR PREFERENCIALMENTE NO BANCO SANTANDER");
 /*     */ 
 /*     */ 
@@ -145,7 +145,7 @@
 /* 145 */         boleto.setCedente("ALLIANZ SEGUROS S.A.");
 /* 146 */         boleto.setCarteira("COBRANCA SIMPLES ECR");
 /* 147 */         String idtCliente = rs.getString("IDT_CLIENTE_EMPRESA");
-/* 148 */         idtCliente = String.valueOf(idtCliente.substring(0, 4)) + "/" + idtCliente.substring(5, idtCliente.length());
+/* 148 */         idtCliente = idtCliente.substring(0, 4) + "/" + idtCliente.substring(5, idtCliente.length());
 /* 149 */         boleto.setIdtClienteEmpresa(idtCliente);
 /*     */         
 /* 151 */         String tipoPessoa = rs.getString("TPPESSOA");
@@ -242,7 +242,7 @@
 /*     */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\boleto\dao\impl\BoletoDAOImpl.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\boleto\dao\impl\BoletoDAOImpl.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

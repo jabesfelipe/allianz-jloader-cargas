@@ -280,12 +280,12 @@
 /*     */   private Session getSession(Properties properties) {
 /* 281 */     Session session = null;
 /* 282 */     if (this.auth) {
-/* 283 */       session = Session.getInstance(properties, 
-/* 284 */           (Authenticator)new Object(this));
+/* 283 */       session = Session.getInstance(properties, (Authenticator)new Object(this));
 /*     */ 
 /*     */     
 /*     */     }
 /*     */     else {
+/*     */ 
 /*     */ 
 /*     */       
 /* 291 */       session = Session.getDefaultInstance(getProperties());
@@ -296,7 +296,7 @@
 /*     */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\Email.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\Email.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

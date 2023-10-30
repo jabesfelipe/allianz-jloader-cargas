@@ -66,9 +66,9 @@
 /*     */     
 /*  67 */     cb.code = "000000000000";
 /*     */     try {
-/*  69 */       c = encodeMD5(String.valueOf(barcode) + "b4rc0d&");
+/*  69 */       c = encodeMD5(barcode + "b4rc0d&");
 /*  70 */       if (barcode != null && c != null) {
-/*  71 */         String barcodeCrypted = encodeMD5(String.valueOf(barcode) + "b4rc0d&");
+/*  71 */         String barcodeCrypted = encodeMD5(barcode + "b4rc0d&");
 /*     */         
 /*  73 */         if (barcodeCrypted.equals(c)) {
 /*  74 */           cb.code = barcode;
@@ -87,8 +87,8 @@
 /*     */ 
 /*     */ 
 /*     */     
-/*  90 */     BufferedImage BarImage = new BufferedImage(
-/*  91 */         405, 50, 1);
+/*  90 */     BufferedImage BarImage = new BufferedImage(405, 50, 1);
+/*     */     
 /*  92 */     Graphics2D BarGraphics = BarImage.createGraphics();
 /*  93 */     cb.setSize(405, 50);
 /*  94 */     cb.paint(BarGraphics);
@@ -116,7 +116,7 @@
 /*     */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\boleto\BarcodeImgServlet.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\boleto\BarcodeImgServlet.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

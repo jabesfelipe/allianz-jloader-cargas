@@ -30,8 +30,8 @@
 /*     */   public static final int LOG_INFO = 1;
 /*     */   public static final int LOG_ERROR = 2;
 /*     */   public static final String BARCODE_URL_MAGIC_WORD = "b4rc0d&";
-/*  33 */   public static final DateFormat dateFormat = new SimpleDateFormat(
-/*  34 */       "dd/MM/yyyy HH:mm:ss");
+/*  33 */   public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+/*     */ 
 /*     */ 
 /*     */ 
 /*     */ 
@@ -45,10 +45,10 @@
 /*     */   public static void toLog(String msg, String pathAndName, int ErrorCode) throws Exception {
 /*  46 */     Calendar cal = GregorianCalendar.getInstance();
 /*  47 */     BufferedWriter out = null;
+/*     */ 
 /*     */     
-/*  49 */     File file = new File(String.valueOf(pathAndName) + (
-/*  50 */         new SimpleDateFormat("yyyyMMdd")).format(cal.getTime()) + 
-/*  51 */         ".log");
+/*  50 */     File file = new File(pathAndName + (new SimpleDateFormat("yyyyMMdd")).format(cal.getTime()) + ".log");
+/*     */ 
 /*     */ 
 /*     */     
 /*     */     try {
@@ -59,19 +59,19 @@
 /*  59 */       e.printStackTrace();
 /*     */     } 
 /*  61 */     if (ErrorCode == 1) {
-/*  62 */       out.write(String.valueOf((new SimpleDateFormat("HH:mm:ss,SS")).format(cal
-/*  63 */               .getTime())) + " INFO:  [" + msg + "]");
+/*  62 */       out.write((new SimpleDateFormat("HH:mm:ss,SS")).format(cal
+/*  63 */             .getTime()) + " INFO:  [" + msg + "]");
 /*     */     } else {
-/*  65 */       out.write(String.valueOf((new SimpleDateFormat("HH:mm:ss,SS")).format(cal
-/*  66 */               .getTime())) + " ERROR: [" + msg + "]");
+/*  65 */       out.write((new SimpleDateFormat("HH:mm:ss,SS")).format(cal
+/*  66 */             .getTime()) + " ERROR: [" + msg + "]");
 /*     */     } 
 /*  68 */     out.newLine();
 /*  69 */     out.close();
 /*     */   }
 /*     */ 
 /*     */   
-/*  73 */   private static SimpleDateFormat DATE_FMT_DMA = new SimpleDateFormat(
-/*  74 */       "dd/MM/yyyy");
+/*  73 */   private static SimpleDateFormat DATE_FMT_DMA = new SimpleDateFormat("dd/MM/yyyy");
+/*     */ 
 /*     */ 
 /*     */ 
 /*     */ 
@@ -375,14 +375,14 @@
 /*     */ 
 /*     */     
 /* 377 */     if (strValorRetorno.indexOf(",") == -1) {
-/* 378 */       strValorRetorno = String.valueOf(strValorRetorno) + ",00";
+/* 378 */       strValorRetorno = strValorRetorno + ",00";
 /*     */     } else {
 /* 380 */       int i = strValorRetorno.indexOf(",");
 /* 381 */       if (i >= 0) {
-/* 382 */         String str = strValorRetorno.substring(i + 1, 
-/* 383 */             strValorRetorno.length());
+/* 382 */         String str = strValorRetorno.substring(i + 1, strValorRetorno
+/* 383 */             .length());
 /* 384 */         if (str.length() == 1) {
-/* 385 */           strValorRetorno = String.valueOf(strValorRetorno) + "0";
+/* 385 */           strValorRetorno = strValorRetorno + "0";
 /*     */         }
 /*     */       } 
 /*     */     } 
@@ -408,7 +408,7 @@
 /* 408 */       if (strValorRetorno.indexOf(",") == -1) {
 /*     */ 
 /*     */         
-/* 411 */         strValorRetorno = String.valueOf(strValorRetorno) + ".00";
+/* 411 */         strValorRetorno = strValorRetorno + ".00";
 /*     */       
 /*     */       }
 /*     */       else {
@@ -426,10 +426,10 @@
 /*     */       
 /* 427 */       int i = strValorRetorno.indexOf(".");
 /* 428 */       if (i >= 0) {
-/* 429 */         String str = strValorRetorno.substring(i + 1, 
-/* 430 */             strValorRetorno.length());
+/* 429 */         String str = strValorRetorno.substring(i + 1, strValorRetorno
+/* 430 */             .length());
 /* 431 */         if (str.length() == 1) {
-/* 432 */           strValorRetorno = String.valueOf(strValorRetorno) + "0";
+/* 432 */           strValorRetorno = strValorRetorno + "0";
 /*     */         }
 /*     */       } 
 /*     */     } 
@@ -448,14 +448,14 @@
 /* 448 */     NumberFormat nFormat = NumberFormat.getInstance(new Locale("pt", "BR"));
 /* 449 */     String strValorRetorno = nFormat.format(Double.parseDouble(pValor));
 /* 450 */     if (strValorRetorno.indexOf(",") == -1) {
-/* 451 */       strValorRetorno = String.valueOf(strValorRetorno) + ",00";
+/* 451 */       strValorRetorno = strValorRetorno + ",00";
 /*     */     } else {
 /* 453 */       int i = strValorRetorno.indexOf(",");
 /* 454 */       if (i >= 0) {
-/* 455 */         String str = strValorRetorno.substring(i + 1, 
-/* 456 */             strValorRetorno.length());
+/* 455 */         String str = strValorRetorno.substring(i + 1, strValorRetorno
+/* 456 */             .length());
 /* 457 */         if (str.length() == 1) {
-/* 458 */           strValorRetorno = String.valueOf(strValorRetorno) + "0";
+/* 458 */           strValorRetorno = strValorRetorno + "0";
 /*     */         }
 /*     */       } 
 /*     */     } 
@@ -477,8 +477,8 @@
 /* 477 */       email.substring(email.indexOf("@") + 1, email.length())
 /* 478 */       .indexOf("@") == -1 && email.indexOf("@") > 0) {
 /* 479 */       strAntesArroba = email.substring(0, email.indexOf("@"));
-/* 480 */       strDepoisArroba = email.substring(email.indexOf("@") + 1, 
-/* 481 */           email.length());
+/* 480 */       strDepoisArroba = email.substring(email.indexOf("@") + 1, email
+/* 481 */           .length());
 /* 482 */       if (verificaSomentePalavra(strAntesArroba) && 
 /* 483 */         verificaSomentePalavra("@" + strDepoisArroba)) {
 /* 484 */         String[] strArrayPalavras = strDepoisArroba.split("\\.");
@@ -511,9 +511,9 @@
 /*     */ 
 /*     */   
 /*     */   public static boolean verificaSomentePalavra(String strParam) {
-/* 514 */     if (strParam.endsWith(".") || strParam.endsWith("-") || 
-/* 515 */       strParam.endsWith("_") || strParam.equals("@") || 
-/* 516 */       strParam.equals("") || strParam == null) {
+/* 514 */     if (strParam.endsWith(".") || strParam.endsWith("-") || strParam
+/* 515 */       .endsWith("_") || strParam.equals("@") || strParam
+/* 516 */       .equals("") || strParam == null) {
 /* 517 */       return false;
 /*     */     }
 /*     */ 
@@ -524,40 +524,40 @@
 /* 524 */       Character carac = new Character(c);
 /* 525 */       int unicode = carac.hashCode();
 /* 526 */       if (strParam.indexOf("@") == -1) {
-/* 527 */         if (i == 0 && (
-/* 528 */           unicode < 65 || unicode > 90) && (
-/* 529 */           unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57)) {
+/* 527 */         if (i == 0 && (unicode < 65 || unicode > 90) && (unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57))
+/*     */         {
+/*     */           
 /* 530 */           return false;
 /*     */         }
-/* 532 */         if (i > 0 && 
-/* 533 */           c != '.' && 
-/* 534 */           c != '-' && 
-/* 535 */           c != '_' && (
-/* 536 */           unicode < 65 || unicode > 90) && (
-/* 537 */           unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57)) {
+/* 532 */         if (i > 0 && c != '.' && c != '-' && c != '_' && (unicode < 65 || unicode > 90) && (unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57))
+/*     */         {
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */           
 /* 538 */           return false;
 /*     */         }
-/* 540 */         if ((c == '.' || c == '-' || c == '_') && (
-/* 541 */           strParam.charAt(i + 1) == '.' || 
-/* 542 */           strParam.charAt(i + 1) == '-' || strParam
+/* 540 */         if ((c == '.' || c == '-' || c == '_') && (strParam
+/* 541 */           .charAt(i + 1) == '.' || strParam
+/* 542 */           .charAt(i + 1) == '-' || strParam
 /* 543 */           .charAt(i + 1) == '_')) {
 /* 544 */           return false;
 /*     */         }
 /*     */       } else {
-/* 547 */         if (i == 1 && (
-/* 548 */           unicode < 65 || unicode > 90) && (
-/* 549 */           unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57)) {
+/* 547 */         if (i == 1 && (unicode < 65 || unicode > 90) && (unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57))
+/*     */         {
+/*     */           
 /* 550 */           return false;
 /*     */         }
-/* 552 */         if (i > 1 && 
-/* 553 */           c != '.' && 
-/* 554 */           c != '-' && (
-/* 555 */           unicode < 65 || unicode > 90) && (
-/* 556 */           unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57)) {
+/* 552 */         if (i > 1 && c != '.' && c != '-' && (unicode < 65 || unicode > 90) && (unicode < 97 || unicode > 122) && (unicode < 48 || unicode > 57))
+/*     */         {
+/*     */ 
+/*     */ 
+/*     */           
 /* 557 */           return false;
 /*     */         }
-/* 559 */         if ((c == '.' || c == '-') && (
-/* 560 */           strParam.charAt(i + 1) == '.' || strParam
+/* 559 */         if ((c == '.' || c == '-') && (strParam
+/* 560 */           .charAt(i + 1) == '.' || strParam
 /* 561 */           .charAt(i + 1) == '-'))
 /* 562 */           return false; 
 /*     */       } 
@@ -639,23 +639,23 @@
 /* 639 */       senhaTmp = encodeMD5(String.valueOf(semente));
 /* 640 */     } catch (NoSuchAlgorithmException nsae) {
 /*     */ 
+/*     */ 
+/*     */ 
 /*     */       
-/* 643 */       senhaTmp = String.valueOf(String.valueOf(semente)) + 
-/* 644 */         Integer.toHexString(rand.nextInt(2147483647)) + 
-/* 645 */         Integer.toOctalString(rand.nextInt(2147483647));
+/* 645 */       senhaTmp = String.valueOf(semente) + Integer.toHexString(rand.nextInt(2147483647)) + Integer.toOctalString(rand.nextInt(2147483647));
 /*     */     } 
 /*     */     
 /* 648 */     if (senhaTmp.length() >= 8) {
 /*     */ 
+/*     */ 
+/*     */ 
 /*     */       
-/* 651 */       novaSenha = String.valueOf(senhaTmp.substring(0, 4).toLowerCase()) + 
-/* 652 */         caractereEspecial + 
-/* 653 */         senhaTmp.substring(5, 8).toUpperCase();
+/* 653 */       novaSenha = senhaTmp.substring(0, 4).toLowerCase() + caractereEspecial + senhaTmp.substring(5, 8).toUpperCase();
 /*     */     
 /*     */     }
 /*     */     else {
 /*     */       
-/* 658 */       novaSenha = String.valueOf(caractereEspecial) + senhaTmp;
+/* 658 */       novaSenha = caractereEspecial + senhaTmp;
 /*     */     } 
 /* 660 */     return novaSenha;
 /*     */   }
@@ -671,7 +671,7 @@
 /*     */ 
 /*     */   
 /*     */   public static String encryptaLinkEmail(String urlBase, String servlet, String codigoBanco, String codigoTitulo, String codigoHistorico) {
-/* 674 */     String data = String.valueOf(codigoBanco) + codigoTitulo + codigoHistorico;
+/* 674 */     String data = codigoBanco + codigoTitulo + codigoHistorico;
 /* 675 */     int crc = Crc32.getIntValue(data, 0, data.length());
 /* 676 */     StringBuffer buf = new StringBuffer();
 /* 677 */     buf.append(urlBase);
@@ -718,11 +718,11 @@
 /* 718 */     if (crcParam != null && crcParam.length() > 0) {
 /* 719 */       crc = Integer.parseInt(crcParam);
 /*     */     }
-/* 721 */     if (codigoHistoricoEmailParam != null && 
-/* 722 */       codigoHistoricoEmailParam.length() > 0) {
+/* 721 */     if (codigoHistoricoEmailParam != null && codigoHistoricoEmailParam
+/* 722 */       .length() > 0) {
 /* 723 */       codigoHistoricoEmail = Integer.parseInt(codigoHistoricoEmailParam);
 /*     */     }
-/* 725 */     String data = String.valueOf(codigoBanco) + codTitulo + codigoHistoricoEmail;
+/* 725 */     String data = codigoBanco + codTitulo + codigoHistoricoEmail;
 /* 726 */     return Crc32.verify(crc, data, 0, data.length());
 /*     */   }
 /*     */ 
@@ -747,11 +747,11 @@
 /* 747 */     if (crcParam != null && crcParam.length() > 0) {
 /* 748 */       crc = Integer.parseInt(crcParam);
 /*     */     }
-/* 750 */     if (codigoHistoricoEmailParam != null && 
-/* 751 */       codigoHistoricoEmailParam.length() > 0) {
+/* 750 */     if (codigoHistoricoEmailParam != null && codigoHistoricoEmailParam
+/* 751 */       .length() > 0) {
 /* 752 */       codigoHistoricoEmail = Integer.parseInt(codigoHistoricoEmailParam);
 /*     */     }
-/* 754 */     String data = String.valueOf(codigoBanco) + codTitulo + codigoHistoricoEmail;
+/* 754 */     String data = codigoBanco + codTitulo + codigoHistoricoEmail;
 /*     */ 
 /*     */     
 /* 757 */     if (Crc32.verify(crc, data, 0, data.length())) {
@@ -820,7 +820,7 @@
 /*     */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\FormatUtil.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\FormatUtil.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

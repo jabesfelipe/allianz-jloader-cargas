@@ -24,7 +24,7 @@
 /*  24 */     Boleto boleto = new Boleto();
 /*     */ 
 /*     */     
-/*  27 */     boleto.setBanco(String.valueOf(rs.getString("BANCOBOLETO")) + "- 7");
+/*  27 */     boleto.setBanco(rs.getString("BANCOBOLETO") + "- 7");
 /*     */     
 /*  29 */     boleto.setNomeSacado(rs.getString("NMCLIENTE"));
 /*  30 */     boleto.setEndereco(rs.getString("ENDERECO"));
@@ -56,11 +56,11 @@
 /*  56 */     boleto.setStrValorDocumento(String.format("%.2f", new Object[] { Double.valueOf(valorBoletoAjustado) }));
 /*     */     
 /*  58 */     String dataBanco = rs.getString("DTVENCIMENTO");
-/*  59 */     boleto.setVencimento(String.valueOf(dataBanco.substring(6, 8)) + "/" + dataBanco.substring(4, 6) + "/" + dataBanco.substring(0, 4));
+/*  59 */     boleto.setVencimento(dataBanco.substring(6, 8) + "/" + dataBanco.substring(4, 6) + "/" + dataBanco.substring(0, 4));
 /*     */ 
 /*     */     
 /*  62 */     boleto.setAgenciaCedente(rs.getString("AGENCIA"));
-/*  63 */     boleto.setCodigoCedente(String.valueOf(rs.getString("CONTACORRENTE")) + "-" + rs.getString("DVCONTA"));
+/*  63 */     boleto.setCodigoCedente(rs.getString("CONTACORRENTE") + "-" + rs.getString("DVCONTA"));
 /*  64 */     boleto.setLocalPagamento("PAGAR PREFERENCIALMENTE NO BANCO SANTANDER");
 /*  65 */     boleto.setDataDocumento(this.sdf.format(new Date()));
 /*  66 */     boleto.setDataProcessamento(this.sdf.format(new Date()));
@@ -70,7 +70,7 @@
 /*  70 */     boleto.setCedente("ALLIANZ SEGUROS S.A.");
 /*  71 */     boleto.setCarteira("COBRANCA SIMPLES ECR");
 /*  72 */     String idtCliente = rs.getString("IDT_CLIENTE_EMPRESA");
-/*  73 */     idtCliente = String.valueOf(idtCliente.substring(0, 4)) + "/" + idtCliente.substring(5, idtCliente.length());
+/*  73 */     idtCliente = idtCliente.substring(0, 4) + "/" + idtCliente.substring(5, idtCliente.length());
 /*  74 */     boleto.setIdtClienteEmpresa(idtCliente);
 /*     */     
 /*  76 */     String tipoPessoa = rs.getString("TPPESSOA");
@@ -128,7 +128,7 @@
 /*     */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\boleto\dao\rowmapper\BoletoRowMapper.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\boleto\dao\rowmapper\BoletoRowMapper.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

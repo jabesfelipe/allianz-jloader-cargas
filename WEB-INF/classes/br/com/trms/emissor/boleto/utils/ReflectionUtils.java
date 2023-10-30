@@ -68,10 +68,10 @@
 /* 68 */         return null;
 /*    */       } 
 /*    */       
-/* 71 */       PropertyDescriptor[] props = info.getPropertyDescriptors(); byte b;
-/*    */       int i;
-/*    */       PropertyDescriptor[] arrayOfPropertyDescriptor1;
-/* 74 */       for (i = (arrayOfPropertyDescriptor1 = props).length, b = 0; b < i; ) { PropertyDescriptor pd = arrayOfPropertyDescriptor1[b];
+/* 71 */       PropertyDescriptor[] props = info.getPropertyDescriptors();
+/*    */ 
+/*    */       
+/* 74 */       for (PropertyDescriptor pd : props) {
 /*    */         try {
 /* 76 */           Field field = entityClass.getDeclaredField(pd.getName());
 /*    */ 
@@ -84,17 +84,17 @@
 /* 84 */             return (Long)id;
 /*    */           } 
 /* 86 */         } catch (Exception exception) {}
-/*    */         
-/*    */         b++; }
-/*    */     
+/*    */       } 
 /*    */     } 
+/*    */ 
+/*    */ 
 /*    */     
 /* 92 */     return null;
 /*    */   }
 /*    */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\ReflectionUtils.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\ReflectionUtils.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

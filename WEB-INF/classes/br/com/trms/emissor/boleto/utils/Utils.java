@@ -41,8 +41,8 @@
 /*     */   
 /*     */   private static final String PROPERTIES_FILE = "/data/ASBoleto/boleto.properties";
 /*     */   
-/*  44 */   private static SimpleDateFormat DATE_FMT_DMA = new SimpleDateFormat(
-/*  45 */       "dd/MM/yyyy");
+/*  44 */   private static SimpleDateFormat DATE_FMT_DMA = new SimpleDateFormat("dd/MM/yyyy");
+/*     */ 
 /*     */ 
 /*     */ 
 /*     */ 
@@ -181,14 +181,14 @@
 /*     */ 
 /*     */   
 /*     */   public static boolean isValidCPF(String cpf) {
-/* 184 */     if (StringUtils.isBlank(cpf) || cpf.matches("^([0-9])(\\1{10})$") || 
-/* 185 */       cpf.length() != 11) {
+/* 184 */     if (StringUtils.isBlank(cpf) || cpf.matches("^([0-9])(\\1{10})$") || cpf
+/* 185 */       .length() != 11) {
 /* 186 */       return false;
 /*     */     }
 /* 188 */     Integer digito1 = Integer.valueOf(calcularDigito(cpf.substring(0, 9), pesoCPF));
-/* 189 */     Integer digito2 = Integer.valueOf(calcularDigito(String.valueOf(cpf.substring(0, 9)) + digito1, pesoCPF));
-/* 190 */     return cpf.equals(String.valueOf(cpf.substring(0, 9)) + digito1.toString() + 
-/* 191 */         digito2.toString());
+/* 189 */     Integer digito2 = Integer.valueOf(calcularDigito(cpf.substring(0, 9) + digito1, pesoCPF));
+/* 190 */     return cpf.equals(cpf.substring(0, 9) + digito1.toString() + digito2
+/* 191 */         .toString());
 /*     */   }
 /*     */ 
 /*     */ 
@@ -198,16 +198,16 @@
 /*     */ 
 /*     */   
 /*     */   public static boolean isValidCNPJ(String cnpj) {
-/* 201 */     if (StringUtils.isBlank(cnpj) || cnpj.matches("^([0-9])(\\1{10})$") || 
-/* 202 */       cnpj.length() != 14 || cnpj.matches("^(.)\\1*$")) {
+/* 201 */     if (StringUtils.isBlank(cnpj) || cnpj.matches("^([0-9])(\\1{10})$") || cnpj
+/* 202 */       .length() != 14 || cnpj.matches("^(.)\\1*$")) {
 /* 203 */       return false;
 /*     */     }
 /*     */     
 /* 206 */     Integer digito1 = Integer.valueOf(calcularDigito(cnpj.substring(0, 12), pesoCNPJ));
-/* 207 */     Integer digito2 = Integer.valueOf(calcularDigito(String.valueOf(cnpj.substring(0, 12)) + digito1, 
-/* 208 */           pesoCNPJ));
-/* 209 */     return cnpj.equals(String.valueOf(cnpj.substring(0, 12)) + digito1.toString() + 
-/* 210 */         digito2.toString());
+/* 207 */     Integer digito2 = Integer.valueOf(calcularDigito(cnpj.substring(0, 12) + digito1, pesoCNPJ));
+/*     */     
+/* 209 */     return cnpj.equals(cnpj.substring(0, 12) + digito1.toString() + digito2
+/* 210 */         .toString());
 /*     */   }
 /*     */ 
 /*     */ 
@@ -315,7 +315,7 @@
 /*     */     
 /* 316 */     for (Object obj : list) {
 /* 317 */       String strObj = (obj == null) ? "" : String.valueOf(obj);
-/* 318 */       result.add(String.valueOf(prefixoAux) + strObj + sufixoAux);
+/* 318 */       result.add(prefixoAux + strObj + sufixoAux);
 /*     */     } 
 /* 320 */     return result;
 /*     */   }
@@ -346,10 +346,13 @@
 /*     */ 
 /*     */   
 /*     */   public static <T> T[] convertToArray(List<T> list, Class<T> clazz) {
-/* 349 */     Object[] result = (Object[])Array.newInstance(clazz, (list != null) ? list.size() : 
-/* 350 */         0);
-/* 351 */     return (list != null) ? list.<T>toArray((T[])result) : (T[])result;
+/* 349 */     T[] result = (T[])Array.newInstance(clazz, (list != null) ? list.size() : 0);
+/*     */     
+/* 351 */     return (list != null) ? list.<T>toArray(result) : result;
 /*     */   }
+/*     */ 
+/*     */ 
+/*     */ 
 /*     */ 
 /*     */ 
 /*     */ 
@@ -364,14 +367,11 @@
 /*     */ 
 /*     */   
 /*     */   public static boolean isEmpty(String... strings) {
-/*     */     byte b;
-/*     */     int i;
-/*     */     String[] arrayOfString;
-/* 370 */     for (i = (arrayOfString = strings).length, b = 0; b < i; ) { String s = arrayOfString[b];
-/* 371 */       if (StringUtils.isBlank(s))
-/* 372 */         return true; 
-/*     */       b++; }
-/*     */     
+/* 370 */     for (String s : strings) {
+/* 371 */       if (StringUtils.isBlank(s)) {
+/* 372 */         return true;
+/*     */       }
+/*     */     } 
 /* 375 */     return false;
 /*     */   }
 /*     */ 
@@ -486,7 +486,7 @@
 /*     */ 
 /*     */   
 /*     */   public static boolean isLongNullOrZero(Long s) {
-/* 489 */     return !(s != null && s.longValue() != 0L);
+/* 489 */     return (s == null || s.longValue() == 0L);
 /*     */   }
 /*     */ 
 /*     */   
@@ -522,7 +522,7 @@
 /*     */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\Utils.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\bolet\\utils\Utils.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

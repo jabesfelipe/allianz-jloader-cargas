@@ -16,7 +16,7 @@
 /*    */   
 /*    */   public Boleto convert(Detalhe detalhe) {
 /* 18 */     Boleto boleto = new Boleto();
-/* 19 */     boleto.setBanco(String.valueOf(detalhe.getBancoBoleto()) + "- 7");
+/* 19 */     boleto.setBanco(detalhe.getBancoBoleto() + "- 7");
 /* 20 */     boleto.setNossoNumero(detalhe.getNossoNumero());
 /* 21 */     boleto.setDocumentoSacado(detalhe.getDocumento());
 /* 22 */     boleto.setNomeSacado(detalhe.getNomeCliente());
@@ -47,7 +47,7 @@
 /*    */ }
 
 
-/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto_20200225_RMS_01.war!\WEB-INF\classes\br\com\trms\emissor\boleto\parser\ParserBoleto.class
+/* Location:              D:\accesstage\projetos\allianz\arquivos\war\prod\decompile\emissor-boleto-local.war!\WEB-INF\classes\br\com\trms\emissor\boleto\parser\ParserBoleto.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
  */

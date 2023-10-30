@@ -20,8 +20,8 @@
 		<spring.ws.version>2.2.1.RELEASE</spring.ws.version>
 	</properties>
 
-	<repositories> 
-		<repository> 
+	<repositories>
+		<repository>
 			<id>Maven Central</id>
 			<name>Maven Central</name>
 			<url>http://nexus-prd1.accesstage.com.br/nexus/content/repositories/central/</url>
@@ -31,7 +31,7 @@
 			<name>Maven Apache</name>
 			<url>http://nexus-prd1.accesstage.com.br/nexus/content/repositories/maven.apache/</url>
 		</repository>
-		<repository> 
+		<repository>
 			<id>Accesstage Snapshots</id>
 			<name>Accesstage Snapshots</name>
 			<url>http://nexus-prd1.accesstage.com.br/nexus/content/repositories/releases/</url>
